@@ -1,0 +1,33 @@
+name: LightbulbLegacy
+version: '${project.version}'
+description: '${project.description}'
+authors: [ Saymoan ]
+api-version: 1.16
+main: me.simondumalski.lightbulblegacy.Main
+prefix: LightbulbLegacy
+depend: [ Vault ]
+softdepend: [ PlayerParticles ]
+commands:
+  lightbulblegacy:
+    description: Allows admins to reload the config.yml
+    aliases: [ lblegacy, lbl ]
+  compensate:
+    description: Allows admins to compensate a player
+  pvp:
+    description: Allows players to toggle their pvp status
+permissions:
+  lightbulblegacy.admin:
+    description: Allows player to use /lightbulblegacy
+    default: op
+  lightbulblegacy.compensate:
+    description: Allows players to use /compensate
+    default: op
+  lightbulblegacy.bypass-cooldown:
+    description: Allows players to bypass the cooldown for toggling your pvp status
+    default: false
+  lightbulblegacy.bypass-quit:
+    description: Allows players to bypass the combat logging penalty
+    default: false
+  lightbulblegacy.bypass-commands:
+    description: Allows players to bypass the disabled commands when in combat
+    default: false

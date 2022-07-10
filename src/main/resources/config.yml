@@ -1,0 +1,70 @@
+# General plugin settings
+plugin:
+  # The amount of time between automatic data saves in seconds
+  # Default: 300
+  save-interval: 300
+
+# Add commands to this list that should be run when /compensate is used
+# Use the %player% placeholder to run commands on the target player
+# Don't include the slash (/) in this list
+compensate:
+  - 'give %player% DIAMOND 64'
+
+# Plugin settings for Combat Tagging
+combat:
+  # The amount of time a player will be combat tagged for in seconds
+  # Default: 60
+  timer: 60
+  # The amount of time a player will have to wait before toggling their pvp status
+  # Players with the permission 'lightbulblegacy.bypass-cooldown' will be exempt from this
+  # Default: 15
+  # -*- Changing this option requires a server restart -*-
+  cooldown: 15
+  # The % of a players balance that will be taken from them if they combat log
+  # Setting this value to 0 will disable the combat logging penalty
+  # Players with the permission 'lightbulblegacy.bypass-quit` will be exempt from this
+  # Value must be 0 <= % <= 100
+  # Default: 2
+  balance-loss: 2
+  # Add commands to this list that player's cannot use while combat tagged
+  # /pvp <on|off|toggle> is automatically added to this list
+  # Players with the permission 'lightbulblegacy.bypass-commands` will be exempt from this
+  # Don't include the slash (/) in this list
+  disabled-commands:
+    - 'fly'
+    - 't deposit'
+    - 'town deposit'
+    - 'n deposit'
+    - 'nation deposit'
+    - 't spawn'
+    - 'town spawn'
+    - 'home'
+    - 'warp'
+    - 'spawn'
+    - 'tpa'
+
+# Plugin messages
+messages:
+  prefix: '&8[&6LightbulbLegacy&8]'
+  errors:
+    unknown-command: '%prefix% &cUnknown command!'
+    insufficient-permissions: '%prefix% &cInsufficient permissions!'
+    invalid-player: '%prefix% &cThe specified player is either offline or invalid!'
+  admin:
+    help: '%prefix% &e/lightbulblegacy reload &8- &7Reloads the config.yml.'
+    reload: '%prefix% &aSuccessfully reloaded the config.yml!'
+  compensate:
+    help: '%prefix% &e/compensate <player> &8- &7Compensates <player>.'
+    already-compensated: '%prefix% &cThe specified player has already been compensated!'
+    sent: '%prefix% &aYou have successfully compensated &e%args0%&a!'
+    received: '%prefix% &aYou have been compensated by &e%args0%&a!'
+  combat:
+    help: '%prefix% &e/pvp <on|off|toggle> &8- &7Changes your pvp status.'
+    in-cooldown: '%prefix% &cYou must wait before toggling your pvp status!'
+    in-combat: '%prefix% &cYou can''t do this while in combat!'
+    entering-combat: '%prefix% &cYou have been combat tagged!'
+    leaving-combat: '%prefix% &aYou are no longer combat tagged!'
+    pvp-enabled: '%prefix% &aPvp enabled!'
+    pvp-disabled: '%prefix% &cPvp disabled!'
+    attacker-pvp-disabled: '%prefix% &cYou have your pvp disabled!'
+    defender-pvp-disabled: '%prefix% &e%args0% &chas their pvp disabled!'
