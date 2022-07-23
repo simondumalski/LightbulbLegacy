@@ -110,7 +110,7 @@ public class PlayerDamageListener implements Listener {
         //Check if the defender has pvp enabled
         if (!combatManager.isPvpEnabled(defender)) {
             e.setCancelled(true);
-            MessageManager.sendMessage(attacker, Message.DEFENDER_PVP_DISABLED, null);
+            MessageManager.sendMessage(attacker, Message.DEFENDER_PVP_DISABLED, new String[]{defender.getName()});
             return;
         }
 

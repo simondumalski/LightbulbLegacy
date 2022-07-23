@@ -6,6 +6,7 @@ import me.simondumalski.lightbulblegacy.combat.CombatManager;
 import me.simondumalski.lightbulblegacy.combat.commands.PvpCommand;
 import me.simondumalski.lightbulblegacy.combat.listeners.*;
 import me.simondumalski.lightbulblegacy.combat.tasks.PvpCircleTask;
+import me.simondumalski.lightbulblegacy.combat.tasks.TagTimerTask;
 import me.simondumalski.lightbulblegacy.compensate.CompensationManager;
 import me.simondumalski.lightbulblegacy.compensate.commands.CompensateCommand;
 import me.simondumalski.lightbulblegacy.data.CombatDataConfig;
@@ -120,6 +121,9 @@ public final class Main extends JavaPlugin {
             interval = 300 * 20;
             ConsoleLogger.logToConsole(Log.INVALID_INTERVAL, null);
         }
+
+        //Schedule the TagTimerTask
+        getServer().getScheduler().scheduleSyncRepeatingTask(this, new TagTimerTask(this), 20L, 20L);
 
         //Schedule the DataSaveTask
         getServer().getScheduler().scheduleSyncRepeatingTask(this, new DataSaveTask(this), interval, interval);
