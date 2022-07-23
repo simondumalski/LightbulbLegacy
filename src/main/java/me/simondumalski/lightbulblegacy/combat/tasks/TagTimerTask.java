@@ -28,14 +28,11 @@ public class TagTimerTask implements Runnable {
 
         try {
 
-            //Get the HashMap of players who are currently combat tagged
-            HashMap<UUID, Integer> taggedPlayers = combatManager.getTaggedPlayers();
-
             //Loop through each tagged player
-            for (UUID uuid : taggedPlayers.keySet()) {
+            for (UUID uuid : combatManager.getTaggedPlayers().keySet()) {
 
                 //Get the tagged time and the player
-                int taggedTime = taggedPlayers.get(uuid);
+                int taggedTime = combatManager.getTaggedPlayers().get(uuid);
                 Player player = plugin.getServer().getPlayer(uuid);
 
                 //If the player is null, skip it
@@ -51,7 +48,8 @@ public class TagTimerTask implements Runnable {
                 }
 
                 //Decrement the time remaining in the combat tag
-                taggedPlayers.replace(uuid, taggedTime - 1);
+                combatManager.getTaggedPlayers().replace(uuid, (taggedTime - 1));
+
 
             }
 
